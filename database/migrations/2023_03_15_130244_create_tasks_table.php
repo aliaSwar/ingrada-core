@@ -19,8 +19,8 @@ return new class extends Migration
             $table->enum('status', ['start', 'progress' . 'test', 'fixed', 'finish']);
             $table->date('start_date');
             $table->time('time_limit');
-            $table->foreignIdFor(User::class, 'user_id');
-            $table->foreignIdFor(Category::class, 'category_id');
+            $table->foreignId('user_id');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

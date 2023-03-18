@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('work_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->double('price');
-            $table->string('slug');
+            $table->string('name')->unique();///ابداعي سريع,ابداعي,عادي,تنفيذي,صانع محتوى للمشاريع المتوسطى
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('work_types');
     }
 };

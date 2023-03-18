@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('font_item', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->double('price');
-            $table->string('slug');
+            $table->foreignId('font_id');
+            $table->foreignId('item_id');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('font_item');
     }
 };
