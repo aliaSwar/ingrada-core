@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('item_id');
             $table->text('description'); //description the customers
             $table->boolean('is_idea')->default(0);
+            $table->boolean('is_finsh')->default(0);
+            $table->enum('type_order', ['in', 'out'])->default('out');
             $table->double('primary_price');
             $table->double('final_price');
             $table->string('type');
@@ -26,7 +28,7 @@ return new class extends Migration
             $table->string('file');
             $table->date('time_limit', 'y-m-d');
             $table->enum('status', ['accept', 'pogress', 'rejected']);
-            $table->text('notes'); /// notes the contect writer
+            $table->text('notes'); // notes the contect writer
             $table->timestamps();
         });
     }
